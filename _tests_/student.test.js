@@ -17,6 +17,13 @@ describe("Student", () => {
             expect(callback).toThrow();
         });
 
+        it("should throw a specific error if 'name' is not a string", () => {
+            const callback = () => new Student(3, 2);
+            const error = new Error("Expected parameter 'name' to be a non-empty string");
+      
+            expect(callback).toThrowError(error);
+          });
+
         it("should throw a specific error if not provided a grade", () => {
             // Creating a callback to test an error
             const callback = () => new Student();
