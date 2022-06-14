@@ -7,7 +7,7 @@ describe("Student", () => {
             const student = new Student("Mariya", 100);
 
             expect(student.name).toEqual("Mariya");
-            expect(student.grade).toEqual(3);
+            expect(student.grade).toEqual(100);
         });
 
         it("should throw an error if provided no arguments", () => {
@@ -26,7 +26,7 @@ describe("Student", () => {
 
         it("should throw a specific error if not provided a grade", () => {
             // Creating a callback to test an error
-            const callback = () => new Student();
+            const callback = () => new Student("Joe");
 
             const error = new Error("Expected parameter 'grade' to be a non-negative number");
 
@@ -42,7 +42,7 @@ describe("Student", () => {
       
           it("should throw a specific error if 'grade' is less than 0", () => {
             const callback = () => new Student("Michael", -1);
-            const err = new Error("Expected parameter 'grade' to be a non-negative number");
+            const error = new Error("Expected parameter 'grade' to be a non-negative number");
       
             expect(callback).toThrowError(error);
           });
